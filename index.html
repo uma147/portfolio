@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatrice Wambui - Portfolio</title>
+    <title>Uma Lalitha - Portfolio</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="portfolio1.css">
+    <style>
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,35 +33,36 @@
         <nav>
             <ul class="nav-links">
                 <li>
-                    <a href="#" class="active">
+                    <a href="#" class="tab-link active" data-tab="home">
                         <i class="fas fa-home"></i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="tab-link" data-tab="resume">
                         <i class="fas fa-file-alt"></i>
                         <span>Resume</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="tab-link" data-tab="work">
                         <i class="fas fa-briefcase"></i>
-                        <span>Work</span>
+                        <span>Projects</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="tab-link" data-tab="contact">
                         <i class="fas fa-address-book"></i>
                         <span>Contact</span>
                     </a>
                 </li>
+                
             </ul>
         </nav>
 
         <div class="main-content">
             <div class="profile-card">
-                <img src="uma.jpg" alt="Beatrice Wambui" class="profile-image">
+                <img src="uma.jpg" alt="Uma Lalitha" class="profile-image">
                 <h2 class="profile-name">Uma Lalitha</h2>
                 <p class="profile-title">FullStack Developer</p>
 
@@ -79,46 +90,70 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <div class="label">Location</div>
-                            <div class="value">perlapadu</div>
+                            <div class="value">Perlapadu</div>
                         </div>
                     </div>
                 </div>
 
-                <a href="C:\Users\uma\Desktop\webtechnology\portfolio\umaresume2 (3).pdf" class="download-btn">
+                <a href="umaresume2 (3).pdf" class="download-btn">
                     <i class="fas fa-download"></i> Download Resume
                 </a>
             </div>
 
-            <div class="content-section">
-                <h1 class="section-title">ABOUT ME</h1>
-                <p class="about-text">
-                    Passionate and driven Java developer with a robust understanding of core Java principles and extensive experience in developing scalable, high-performance applications. Adept at utilizing frameworks such as Spring and Hibernate to create efficient and maintainable code. Committed to leveraging problem-solving skills and technical expertise to contribute to innovative projects, drive continuous improvement, and achieve professional growth in a dynamic and collaborative environment. 
-                </p>
+            <!-- Content Sections -->
+            <div class="content">
+                <div id="home" class="content-section active">
+                    <h1 class="section-title">ABOUT ME</h1>
+                    <p class="about-text">
+                        Passionate and driven Java developer with a robust understanding of core Java principles and extensive experience in developing scalable, high-performance applications. Adept at utilizing frameworks such as Spring and Hibernate to create efficient and maintainable code.
+                    </p>
+                </div>
 
-                <div class="skills-section">
-                    <h2>projects</h2>
+                <div id="resume" class="content-section">
+                    <h1 class="section-title">Resume</h1>
+                    <iframe src="umaresume2 (3).pdf" width="100%" height="500px"></iframe>
+    <p><a href="umaresume2 (3).pdf" download class="download-btn">
+        <i class="fas fa-download"></i> Download Resume
+    </a></p>
+                </div>
+
+                <div id="work" class="content-section">
+                    <h1 class="section-title">Projects</h1>
                     <div class="skills-grid">
                         <div class="skill-card">
                             <h3><i class="fas fa-code"></i> Web Development</h3>
-                            <p>
-                                Created a responsive portfolio website using HTML, CSS, and JavaScript to showcase my projects and skills effectively.
+                            <p>1.Created a responsive portfolio website using HTML, CSS, and JavaScript.<br>
+                                2.Designed portfolio showcasing projects and skills.<br>
+                                3.Built interactive portfolio with seamless navigation.
                             </p>
                         </div>
+                         <div class="skill-card">
+                            <h3><i class="fas fa-robot"></i> Machine Learning</h3>
+                            <p>1.Developed a web application to assist farmers in detecting diseases in guava leaves using CNN models.<br>
+                                2.Utilized CNN for guava leaf classification.<br>
+                                3.Implemented preprocessing techniques for accurate detection
+                            </p>
+                        </div>
+                        
                         <div class="skill-card">
                             <h3><i class="fas fa-shield-alt"></i> Cyber Security</h3>
-                            <p>
-                                Conducted malware analysis and reverse engineering. <br>
-                                • Identified malware behavior through reverse engineering. <br>
-                                • Utilized tools for in-depth malware analysis. 
-                            </p>
-                        </div>
-                        <div class="skill-card">
-                            <h3><i class="fas fa-users"></i> Machine Learning</h3>
-                            <p>
-                                Developed a web application to assist farmers in detecting diseases in guava leaves using CNN models.</p>
+                            <p>1.Conducted malware analysis and reverse engineering.<br>
+                                2.Identified malware behavior through reverse engineering.<br>
+                               3 • Utilized tools for in-depth malware analysis.
                             </p>
                         </div>
                     </div>
+                </div>
+
+                <div id="contact" class="content-section">
+                    <h1 class="section-title">Contact</h1>
+                    <p>Email: umakarriavula@gmail.com</p>
+                    <p>Phone: 6281003901</p>
+                </div>
+
+                <div id="machine-learning" class="content-section">
+                    <h1 class="section-title">Machine Learning</h1>
+                    <p>Developed a web application to assist farmers in detecting diseases in guava leaves using CNN models.</p>
                 </div>
             </div>
         </div>
@@ -130,18 +165,15 @@
         const body = document.body;
         const icon = themeToggle.querySelector('i');
 
-        // Check for saved theme preference or use preferred color scheme
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             body.classList.add('dark-mode');
             icon.classList.replace('fa-moon', 'fa-sun');
         }
 
-        // Toggle theme
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
 
-            // Update icon
             if (body.classList.contains('dark-mode')) {
                 icon.classList.replace('fa-moon', 'fa-sun');
                 localStorage.setItem('theme', 'dark');
@@ -151,21 +183,29 @@
             }
         });
 
-        // Navigation functionality
-        const navLinks = document.querySelectorAll('.nav-links a');
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.tab-link');
+        const contentSections = document.querySelectorAll('.content-section');
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                // Remove active class from all links
-                navLinks.forEach(item => item.classList.remove('active'));
+                // Remove active class from all tabs
+                tabs.forEach(item => item.classList.remove('active'));
 
-                // Add active class to clicked link
-                link.classList.add('active');
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Hide all content sections
+                contentSections.forEach(section => section.classList.remove('active'));
+
+                // Show the selected content
+                const selectedTab = tab.getAttribute('data-tab');
+                document.getElementById(selectedTab).classList.add('active');
             });
         });
     </script>
 </body>
 
-</html>
+</html> 
