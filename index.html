@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatrice Wambui - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="portfolio1.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Uma <span>Lalitha</span></h1>
+            </div>
+            <div class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="#" class="active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Resume</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Work</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-address-book"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="profile-card">
+                <img src="uma.jpg" alt="Beatrice Wambui" class="profile-image">
+                <h2 class="profile-name">Uma Lalitha</h2>
+                <p class="profile-title">FullStack Developer</p>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/uma-karriavula-1462b8268/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/uma147" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <div class="label">Phone</div>
+                            <div class="value">6281003901</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="label">Email</div>
+                            <div class="value">umakarriavula@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="label">Location</div>
+                            <div class="value">perlapadu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="C:\Users\uma\Desktop\webtechnology\portfolio\umaresume2 (3).pdf" class="download-btn">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </div>
+
+            <div class="content-section">
+                <h1 class="section-title">ABOUT ME</h1>
+                <p class="about-text">
+                    Passionate and driven Java developer with a robust understanding of core Java principles and extensive experience in developing scalable, high-performance applications. Adept at utilizing frameworks such as Spring and Hibernate to create efficient and maintainable code. Committed to leveraging problem-solving skills and technical expertise to contribute to innovative projects, drive continuous improvement, and achieve professional growth in a dynamic and collaborative environment. 
+                </p>
+
+                <div class="skills-section">
+                    <h2>projects</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h3><i class="fas fa-code"></i> Web Development</h3>
+                            <p>
+                                Created a responsive portfolio website using HTML, CSS, and JavaScript to showcase my projects and skills effectively.
+                            </p>
+                        </div>
+                        <div class="skill-card">
+                            <h3><i class="fas fa-shield-alt"></i> Cyber Security</h3>
+                            <p>
+                                Conducted malware analysis and reverse engineering. <br>
+                                • Identified malware behavior through reverse engineering. <br>
+                                • Utilized tools for in-depth malware analysis. 
+                            </p>
+                        </div>
+                        <div class="skill-card">
+                            <h3><i class="fas fa-users"></i> Machine Learning</h3>
+                            <p>
+                                Developed a web application to assist farmers in detecting diseases in guava leaves using CNN models.</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Update icon
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Remove active class from all links
+                navLinks.forEach(item => item.classList.remove('active'));
+
+                // Add active class to clicked link
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
