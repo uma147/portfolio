@@ -8,6 +8,21 @@
     --border-radius: 12px;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes flipIn {
+    from { transform: rotateY(90deg); opacity: 0; }
+    to { transform: rotateY(0); opacity: 1; }
+}
+
 .dark-mode {
     --primary-color: #ff7722;
     --text-color: #f5f7fa;
@@ -28,6 +43,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: all 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .container {
@@ -100,6 +116,8 @@ nav {
     flex-direction: column;
     align-items: center;
     transition: all 0.3s ease;
+    animation: slideIn 0.8s ease-in-out;
+
 }
 
 .nav-links a:hover {
